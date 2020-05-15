@@ -73,17 +73,17 @@ In december, TAC for division 3.a is agreed between the EU and Norway and depend
 
 1. $TAC_{WBSS}=2TAC_{22-24}=2TAC_{F_{WBSS}}$ so in `r thisY`, $TAC_{WBSS}=$ **`r displayNum(2*TACf)` t**.
 
+<span style="color:red"> VB: Note that as long as agreed TAC equal the advice the two are approx interchangable, but if the two begin to depart, it is relevant to make a distinction  </span>
+
 2. Assuming 1. and given the TAC for the A-fleet in the North Sea $TAC_{A_{WBSS+NSAS}}$, $TAC_{C_{WBSS+NSAS}}$ for human consumption in 3.a is calculated as $TAC_{C_{WBSS+NSAS}}=0.41TAC_{WBSS} + 0.057TAC_{A_{WBSS+NSAS}}$.
 
-<span style="color:grey"> I assume the $0.057TAC_{A_{WBSS+NSAS}}$ corresponds to the part of the catch for the A-fleet in 3.a (and 4-7dE). The TAC rule for the C-fleet could therefore be explained by either 41% of the WBSS total catch is taken by the C-fleet in 3.a, or 41% of the WBSS total catch approximate the WBSS+NSAS catches by the C-fleet in 3.a. If the first one is true, and since 50% of $TAC_{WBSS}$ is taken by the F-fleet in 22-24, then it follows that, the remaining 9% of $TAC_{WBSS}$ is taken by the D-fleet in 3.a.  </span>
+<span style="color:red"> VT: I assume the $0.057TAC_{A_{WBSS+NSAS}}$ may correspond to the part of the C-fleet catch that is NSAS herring. The $0.41TAC_{WBSS}$ could correspond to the part of the C-fleet catch that is WBSS herring.  </span>
 
 Since $TAC_{A_{WBSS+NSAS}}=$ **`r displayNum(TACa_NSWB)` t** in `r thisY`, $TAC_{C_{WBSS+NSAS}}=$ **`r displayNum(round(TACc_NSWB))` t**. 
 
-3. 50% of Norwegian $TAC_{C_{WBSS+NSAS}}$ can be taken in the Norwegian Economic Zone and 50% of EU $TAC_{C_{WBSS+NSAS}}$ can be taken in the North Sea so transferred to $TAC_{A_{WBSS+NSAS}}$
+3. 50% of Norwegian $TAC_{C_{WBSS+NSAS}}$ can be taken in the Norwegian Economic Zone and 50% of EU $TAC_{C_{WBSS+NSAS}}$ can be taken in the North Sea so added to $TAC_{A_{WBSS+NSAS}}$
 
 4. Then the TAC for the industrial and sprat bycatch fisheries in 3.a (D-flieet) is given. In `r thisY`, $TAC_{D_{WBSS+NSAS}}=$ **`r displayNum(TACd_NSWB)` t**. 
-
-<span style="color:grey"> I'm not sure where this number is coming from but it's been pretty constant in the past years. 9% of $TAC_{WBSS}$ would be 567 t, which is only a very small proportion of `r displayNum(TACd_NSWB)` t. Does it mean the D-fleet mainly fish NSAS? Am I misunderstanding something or there is just a lack of consistency between the C-fleet TAC rule and the D-fleet TAC rule? </span>
 
 
 5. Thereafter, at HAWG, we take our own assumptions to split the above TACs in 3.a between WBSS and NSAS as follows:
@@ -127,6 +127,10 @@ Total | `r round(sum(TACNSWB[1],TACNSWB[2],TACNSWB[3],TACNSWB[4]))` | `r round(s
 *** Given by the Pelagic Regional Advisory Council (RAC) or estimated asking fishers (transfer fraction used)
 
 **** 3-year average utilization (`r fitthisY$data$years[(fitthisY$data$noYears-2)]`-`r fitthisY$data$years[fitthisY$data$noYears]`)
+
+
+<span style="color:red"> VT: So in conclusion, the way the TAC is set for WBSS assumes that 50% of $TAC_{WBSS}$ is taken by the F-fleet, 41% is taken by the C-fleet and 9% is taken by the D-fleet in 3.a and A-fleet in 4.7E. If this is the correct interpretation of the TAC setting, looking at the Table above, we see that this is not currently the case. Assuming the fleet utilization, we have $TAC_{A_{WBSS}}$ = `r round(TACfleet[1]/sum(TACfleet[1],utiliz_C*propWB_C*TACNSWB[2],utiliz_D*propWB_D*TACNSWB[3],TACNSWB[4])*100,1)`%, $TAC_{C_{WBSS}}$ = `r round((utiliz_C*propWB_C*TACNSWB[2])/sum(TACfleet[1],utiliz_C*propWB_C*TACNSWB[2],utiliz_D*propWB_D*TACNSWB[3],TACNSWB[4])*100,1)`%, $TAC_{D_{WBSS}}$ = `r round((utiliz_D*propWB_D*TACNSWB[3])/sum(TACfleet[1],utiliz_C*propWB_C*TACNSWB[2],utiliz_D*propWB_D*TACNSWB[3],TACNSWB[4])*100,1)`%, $TAC_{F_{WBSS}}$ = `r round(TACNSWB[4]/sum(TACfleet[1],utiliz_C*propWB_C*TACNSWB[2],utiliz_D*propWB_D*TACNSWB[3],TACNSWB[4])*100,1)`%.
+I don't understand the rule $TAC_{WBSS}=2TAC_{22-24}$ when it is actually not the case. </span>
 
 
 
